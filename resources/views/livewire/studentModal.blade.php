@@ -13,18 +13,24 @@
                     <div class="mb-3">
                         <label>Student Name</label>
                         <input type="text" wire:model="name" class="form-control">
-                        @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                        @error('name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mb-3">
 
                         <label>Student Email</label>
                         <input type="text" wire:model="email" class="form-control">
-                        @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                        @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label>Student Course</label>
                         <input type="text" wire:model="course" class="form-control">
-                        @error('course') <span class="text-danger">{{ $message }}</span> @enderror
+                        @error('course')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -37,11 +43,9 @@
     </div>
 </div>
 
-
-
 <!-- Update Student Modal -->
-<div wire:ignore.self class="modal fade" id="updateStudentModal" tabindex="-1" aria-labelledby="updateStudentModalLabel"
-    aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="updateStudentModal" tabindex="-1"
+    aria-labelledby="updateStudentModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -54,18 +58,24 @@
                     <div class="mb-3">
                         <label>Student Name</label>
                         <input type="text" wire:model="name" class="form-control">
-                        @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                        @error('name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
                         <label>Student Email</label>
                         <input type="text" wire:model="email" class="form-control">
-                        @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                        @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label>Student Course</label>
                         <input type="text" wire:model="course" class="form-control">
-                        @error('course') <span class="text-danger">{{ $message }}</span> @enderror
+                        @error('course')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -79,8 +89,8 @@
 </div>
 
 <!-- Delete Student Modal -->
-<div wire:ignore.self class="modal fade" id="deleteStudentModal" tabindex="-1" aria-labelledby="deleteStudentModalLabel"
-    aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="deleteStudentModal" tabindex="-1"
+    aria-labelledby="deleteStudentModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

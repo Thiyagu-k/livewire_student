@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Livewire;
+
 use Livewire\WithPagination;
 use App\Models\Student as StudentModel;
 use Livewire\Component;
@@ -18,7 +19,7 @@ class Student extends Component
     {
         return [
             'name' => 'required|string|min:4',
-            'email' => ['required','email'],
+            'email' => ['required', 'email'],
             'course' => 'required|string',
         ];
     }
@@ -33,21 +34,21 @@ class Student extends Component
         $validatedData = $this->validate();
 
         StudentModel::create($validatedData);
-        session()->flash('message','Student Added Successfully');
+        session()->flash('message', 'Student Added Successfully');
         $this->resetInput();
-        $this->dispatchBrowserEvent('close-modal');
+        $this->dispatch('close-modal');
     }
 
     public function editStudent(int $student_id)
     {
         $student = StudentModel::find($student_id);
-        if($student){
+        if ($student) {
 
             $this->student_id = $student->id;
             $this->name = $student->name;
             $this->email = $student->email;
             $this->course = $student->course;
-        }else{
+        } else {
             return redirect()->to('/students');
         }
     }
@@ -56,14 +57,14 @@ class Student extends Component
     {
         $validatedData = $this->validate();
 
-        StudentModel::where('id',$this->student_id)->update([
+        StudentModel::where('id', $this->student_id)->update([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'course' => $validatedData['course']
         ]);
-        session()->flash('message','Student Updated Successfully');
+        session()->flash('message', 'Student Updated Successfully');
         $this->resetInput();
-        $this->dispatchBrowserEvent('close-modal');
+        $this->dispatch('close-modal');
     }
 
     public function deleteStudent(int $student_id)
@@ -74,8 +75,8 @@ class Student extends Component
     public function destroyStudent()
     {
         StudentModel::find($this->student_id)->delete();
-        session()->flash('message','Student Deleted Successfully');
-        $this->dispatchBrowserEvent('close-modal');
+        session()->flash('message', 'Student Deleted Successfully');
+        $this->dispatch('close-modal');
     }
 
     public function closeModal()
@@ -93,7 +94,7 @@ class Student extends Component
     public function render()
     {
 
-        $students = StudentModel::where('name', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(3);
+        $students = StudentModel::where('name', 'like', '%' . $this->search . '%')->orderBy('id', 'DESC')->paginate(3);
         return view('livewire.student', ['students' => $students]);
     }
 }
