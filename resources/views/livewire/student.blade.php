@@ -4,7 +4,6 @@
 
     <div class="container">
         <div class="row">
-
             <div class="col-md-12">
                 @if (session()->has('message'))
                     <h5 class="alert alert-success">{{ session('message') }}</h5>
@@ -12,7 +11,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h4>Student Details
+                        <h4>Student CRUD with Bootstrap Modal
                             <input type="search" wire:model="search" class="form-control float-end mx-2" placeholder="Search..." style="width: 230px" />
                             <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#studentModal">
                                 Add New Student
@@ -43,7 +42,6 @@
                                             </button>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#deleteStudentModal" wire:click="deleteStudent({{$student->id}})" class="btn btn-danger">Delete</button>
                                         </td>
-
                                     </tr>
                                 @empty
                                     <tr>

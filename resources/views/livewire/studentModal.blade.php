@@ -18,7 +18,6 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-
                         <label>Student Email</label>
                         <input type="text" wire:model="email" class="form-control">
                         @error('email')
@@ -43,6 +42,7 @@
     </div>
 </div>
 
+
 <!-- Update Student Modal -->
 <div wire:ignore.self class="modal fade" id="updateStudentModal" tabindex="-1"
     aria-labelledby="updateStudentModalLabel" aria-hidden="true">
@@ -62,7 +62,6 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-
                     <div class="mb-3">
                         <label>Student Email</label>
                         <input type="text" wire:model="email" class="form-control">
@@ -100,7 +99,7 @@
             </div>
             <form wire:submit.prevent="destroyStudent">
                 <div class="modal-body">
-                    <h4>Do you want to delete this data ! sure</h4>
+                    <h4>Are you sure you want to delete this data ?</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" wire:click="closeModal"
