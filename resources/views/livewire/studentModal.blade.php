@@ -25,6 +25,15 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <label>Student Phone</label>
+                        <input type="number" min="6000000000" max="9999999999" wire:model="phone_number"
+                            class="form-control">
+                        @error('phone_number')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
                         <label>Student Course</label>
                         <input type="text" wire:model="course" class="form-control">
                         @error('course')
@@ -66,6 +75,13 @@
                         <label>Student Email</label>
                         <input type="text" wire:model="email" class="form-control">
                         @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label>Student Phone</label>
+                        <input type="text" wire:model="phone_number" class="form-control">
+                        @error('phone_number')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

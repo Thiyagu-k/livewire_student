@@ -25,6 +25,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Phone Number</th>
                                     <th>Course</th>
                                     <th>Actions</th>
                                 </tr>
@@ -35,6 +36,7 @@
                                         <td>{{ $student->id }}</td>
                                         <td>{{ $student->name }}</td>
                                         <td>{{ $student->email }}</td>
+                                        <td>{{ $student->phone_number }}</td>
                                         <td>{{ $student->course }}</td>
                                         <td>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#updateStudentModal" wire:click="editStudent({{$student->id}})" class="btn btn-primary">

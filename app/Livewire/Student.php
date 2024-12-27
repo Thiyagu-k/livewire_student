@@ -12,7 +12,7 @@ class Student extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    public $name, $email, $course, $student_id;
+    public $name, $email,$phone_number, $course, $student_id;
     public $search = '';
 
     protected function rules()
@@ -21,6 +21,7 @@ class Student extends Component
             'name' => 'required|string|min:4',
             'email' => ['required', 'email'],
             'course' => 'required|string',
+            'phone_number' => ['required', 'regex:/^[6-9][0-9]{9}$/']
         ];
     }
 
@@ -47,6 +48,7 @@ class Student extends Component
             $this->student_id = $student->id;
             $this->name = $student->name;
             $this->email = $student->email;
+            $this->phone_number = $student->phone_number;
             $this->course = $student->course;
         } else {
             return redirect()->to('/students');
@@ -60,6 +62,7 @@ class Student extends Component
         StudentModel::where('id', $this->student_id)->update([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
+            'phone_number' => $validatedData['phone_number'],
             'course' => $validatedData['course']
         ]);
         session()->flash('message', 'Student Updated Successfully');
@@ -88,6 +91,7 @@ class Student extends Component
     {
         $this->name = '';
         $this->email = '';
+        $this->phone_number = '';
         $this->course = '';
     }
 
